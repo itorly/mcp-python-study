@@ -26,6 +26,7 @@ new-item weather.py
 weather.py
 
 # Testing the MCP server with Claude for Desktop
+We’ll need to configure Claude for Desktop for whichever MCP servers you want to use. To do this, open your Claude for Desktop App configuration.
 ## Windows
 ```sh
 # What does "code $env:AppData\Claude\claude_desktop_config.json" mean?
@@ -36,3 +37,23 @@ weather.py
 # 3.The whole command simply means: "Open that config file in VS Code."
 code $env:AppData\Claude\claude_desktop_config.json
 ```
+
+You’ll then add your servers in the mcpServers key. The MCP UI elements will only show up in Claude for Desktop if at least one server is properly configured.
+
+In this case, we’ll add our single weather server like so:
+```json
+{
+  "mcpServers": {
+    "weather": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:\\ABSOLUTE\\PATH\\TO\\PARENT\\FOLDER\\weather",
+        "run",
+        "weather.py"
+      ]
+    }
+  }
+}
+```
+
