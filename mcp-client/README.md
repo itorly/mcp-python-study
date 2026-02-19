@@ -8,6 +8,10 @@ cd mcp-client
 
 # Create virtual environment
 uv venv
+## Output
+# Using CPython 3.12.4 interpreter at: ANACONDA3_DIRECTORY\python.exe
+# Creating virtual environment at: .venv
+# Activate with: .venv\Scripts\activate
 
 # Activate virtual environment
 .venv\Scripts\activate
