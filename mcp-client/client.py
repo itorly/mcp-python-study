@@ -117,3 +117,26 @@ async def process_query(self, query: str) -> str:
             final_text.append(response.content[0].text)
 
     return "\n".join(final_text)
+
+# Interactive Chat Interface
+async def chat_loop(self):
+    """Run an interactive chat loop"""
+    print("\nMCP Client Started!")
+    print("Type your queries or 'quit' to exit.")
+
+    while True:
+        try:
+            query = input("\nQuery: ").strip()
+
+            if query.lower() == 'quit':
+                break
+
+            response = await self.process_query(query)
+            print("\n" + response)
+
+        except Exception as e:
+            print(f"\nError: {str(e)}")
+
+async def cleanup(self):
+    """Clean up resources"""
+    await self.exit_stack.aclose()
