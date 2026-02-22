@@ -27,6 +27,14 @@ new-item client.py
 ```
 
 # Setting Up Your API Key
+You’ll need an Anthropic API key from the Anthropic Console.
+
+Create a .env file to store it:
 ```sh
 echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
+```
+
+Add .env to your .gitignore:
+```sh
+echo ".env" >> .gitignore
 ```
