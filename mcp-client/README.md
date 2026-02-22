@@ -25,3 +25,8 @@ del main.py
 # Create our main file
 new-item client.py
 ```
+
+# Setting Up Your API Key
+```sh
+echo "ANTHROPIC_API_KEY=your-api-key-goes-here" > .env
+```
