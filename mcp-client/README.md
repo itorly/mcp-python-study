@@ -38,3 +38,9 @@ Add .env to your .gitignore:
 ```sh
 echo ".env" >> .gitignore
 ```
+
+# Running the Client
+```sh
+uv run client.py path/to/server.py # python server
+uv run client.py path/to/build/index.js # node server
+```
