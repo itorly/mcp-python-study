@@ -53,15 +53,20 @@ async def get_alerts(state: str) -> str:
     Args:
         state: Two-letter US state code (e.g. CA, NY)
     """
+    # Build the NWS endpoint for active alerts in the given state.
     url = f"{NWS_API_BASE}/alerts/active/area/{state}"
+    # Call the shared request helper, which handles HTTP errors and JSON parsing.
     data = await make_nws_request(url)
 
+    # Handle missing/invalid responses or unexpected payload shapes.
     if not data or "features" not in data:
         return "Unable to fetch alerts or no alerts found."
 
+    # If the API responded successfully but returned no active alerts.
     if not data["features"]:
         return "No active alerts for this state."
 
+    # Format each alert into a readable block and join them for display.
     alerts = [format_alert(feature) for feature in data["features"]]
     return "\n---\n".join(alerts)
 
